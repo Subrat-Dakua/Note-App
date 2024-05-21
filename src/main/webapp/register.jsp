@@ -10,11 +10,15 @@
 <body>
 		 <div class="login-box">
         <h2>Registration Form</h2>
-        <form action="">
-            <div class="user-box">
-                <input type="text" name= "id" required>
-                <label for="">Id</label>
-            </div>
+        
+        <% String msg=(String)session.getAttribute("success");
+        if(msg!=null){%>
+        <p class=" text-align-center text-success text-white fs-4"> <%= msg%></p>
+        <%
+			session.removeAttribute("success");
+		}
+		%>
+        <form action="register" method="post">
             <div class="user-box">
                 <input type="text" name= "name" required>
                 <label for="">Name</label>
@@ -35,12 +39,12 @@
                 <input type="tel" name="mobile" required>
                 <label for="">Mobile</label>
             </div>
-            <a href="">
+            <div class="anchor">
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span>Register
-            </a>
+                <span></span><input type="submit" value="Register" >
+            </div>
         </form>
     </div>
 </body>
